@@ -16,6 +16,7 @@ const CorporateInformation = () => {
           .collection("corporate_info")
           .getFullList(200, {
             sort: "sno",
+            requestKey: null,
           });
 
         setCorpInfo(corpInfoRes);

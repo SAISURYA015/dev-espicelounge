@@ -17,6 +17,7 @@ const Policies = () => {
           .getFullList(200, {
             sort: "sno",
             filter: 'page = "policies"',
+            requestKey: null,
           });
 
         setPoliciesInfo(policiesInfoRes);

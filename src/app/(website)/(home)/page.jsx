@@ -1,15 +1,17 @@
 "use client";
 
 import NavBar from "@/components/shared/NavBar";
-import Carousel from "@/components/shared/Carousel";
 import Footer from "../footer/page";
+import Carousel from "@/components/shared/Carousel";
 import { ArrowRight, MoveRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import pb from "../_lib/pb";
+import dynamic from "next/dynamic";
+
+// Dynamically import Slider (client only)
+const Slider = dynamic(() => import("react-slick"), { ssr: false });
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-
 const Home = () => {
   const [loading, setLoading] = useState(true);
 

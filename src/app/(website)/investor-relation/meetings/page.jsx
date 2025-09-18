@@ -19,6 +19,7 @@ const Meetings = () => {
           .getFullList(200, {
             sort: "sno",
             filter: 'page = "meetings"',
+            requestKey: null,
           });
 
         setMeetingsInfo(meetingsInfoRes);

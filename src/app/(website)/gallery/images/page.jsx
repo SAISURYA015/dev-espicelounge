@@ -3,11 +3,14 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "@/components/shared/NavBar";
 import Footer from "../../footer/page";
-import Slider from "react-slick";
+import dynamic from "next/dynamic"; // ⬅️ add this
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import pb from "../../_lib/pb";
+
+// Dynamically import Slider so it only runs on the client
+const Slider = dynamic(() => import("react-slick"), { ssr: false });
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
-import pb from "../../_lib/pb";
 
 const Gallery = () => {
   const [loading, setLoading] = useState(true);

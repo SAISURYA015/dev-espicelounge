@@ -18,6 +18,7 @@ const Annual = () => {
           .collection("annual_reports")
           .getFullList(200, {
             sort: "sno",
+            requestKey: null,
           });
 
         setAnnualReports(annualReportRes);

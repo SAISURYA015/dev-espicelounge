@@ -18,6 +18,7 @@ const Shareholding = () => {
           .collection("share_holding")
           .getFullList(200, {
             sort: "-sno", // Latest first
+            requestKey: null,
           });
 
         setShareHolding(shareHoldingRes);

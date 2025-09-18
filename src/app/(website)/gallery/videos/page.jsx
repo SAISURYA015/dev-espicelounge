@@ -3,13 +3,17 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "@/components/shared/NavBar";
 import Footer from "../../footer/page";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
+import dynamic from "next/dynamic";
 import pb from "../../_lib/pb";
 
+// Dynamically import client-only libs
+const Slider = dynamic(() => import("react-slick"), { ssr: false });
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const Gallery = () => {
+  const [isClient, setIsClient] = useState(false);
   const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(null);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(null);
@@ -119,6 +123,7 @@ const Gallery = () => {
   const [galactive, setGalactive] = useState("vid");
 
   useEffect(() => {
+    setIsClient(true);
     const fetchData = async () => {
       try {
         const [bannersRes, brandsRes, imagesRes, videosRes] = await Promise.all(
@@ -166,6 +171,14 @@ const Gallery = () => {
 
     fetchData();
   }, []);
+
+  if (!isClient) {
+    return (
+      <div className="h-dvh w-dvw flex justify-center items-center">
+        <div className="w-20 h-20 border-4 border-gray-300 border-t-4 border-t-[#152768] rounded-full animate-spin"></div>
+      </div>
+    );
+  }
 
   if (loading)
     return (

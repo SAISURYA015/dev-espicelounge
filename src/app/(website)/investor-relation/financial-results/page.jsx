@@ -18,6 +18,7 @@ const FinancialResults = () => {
           .collection("financial_results")
           .getFullList(200, {
             sort: "-sno", // Latest first
+            requestKey: null,
           });
 
         setFinancialResults(finResultRes);

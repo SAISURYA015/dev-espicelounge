@@ -16,6 +16,7 @@ const DisclosureReg = () => {
           .collection("disclosures")
           .getFullList(200, {
             sort: "sno",
+            requestKey: null,
           });
 
         setDisclosureReg(disclosureRes);

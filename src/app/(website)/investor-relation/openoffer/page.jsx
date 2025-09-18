@@ -17,6 +17,7 @@ const OpenOffer = () => {
           .getFullList(200, {
             sort: "sno",
             filter: 'page = "open-offer"',
+            requestKey: null,
           });
 
         setOpenOfferInfo(openOfferInfoRes);

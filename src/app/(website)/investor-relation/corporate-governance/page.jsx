@@ -14,6 +14,7 @@ const CorporateGovernance = () => {
       try {
         const res = await pb.collection("corporate_governance").getFullList(1, {
           sort: "updated",
+          requestKey: null,
         });
 
         if (res.length > 0) {

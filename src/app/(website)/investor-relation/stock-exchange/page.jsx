@@ -17,6 +17,7 @@ const StockExchange = () => {
           .getFullList(200, {
             sort: "sno",
             filter: 'page = "stock"',
+            requestKey: null,
           });
 
         setStockExchangeInfo(stockExchangeInfoRes);
